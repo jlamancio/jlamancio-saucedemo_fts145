@@ -1,0 +1,15 @@
+Modos de execução do Playwright
+Headless (padrão): - sem exibição do resultado
+Headed: com exibição 
+    comando: npx playwright test --headed
+
+2025
+
+data-test (w3c)
+id
+name
+cssSelector
+class 
+tag 
+xPath
+
