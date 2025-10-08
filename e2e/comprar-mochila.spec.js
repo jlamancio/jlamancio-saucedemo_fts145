@@ -3,7 +3,7 @@
 const { test, expect } = require('@playwright/test');
 
 // 2 - classes funções ou métodos  
-test.skip('Realizar o fluxo de compra da mochila', async ({ page }) => {
+test('Realizar o fluxo de compra da mochila', async ({ page }) => {
 
     // 1 - validar acesso à pagina e fazer login
 

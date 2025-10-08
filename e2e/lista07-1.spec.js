@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
 
-test('Realizar fluxo de compra de viagem', async ({ page }) => {
+test.skip('Realizar fluxo de compra de viagem', async ({ page }) => {
 
     // 1 - acessar e validar que está na página de abertura do site
 

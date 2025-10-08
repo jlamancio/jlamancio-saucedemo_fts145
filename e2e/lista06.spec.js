@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
 
-test('Selecionar @viagem e ir para página de com lista de voos', async ({ page }) => {
+test.skip('Selecionar @viagem e ir para página de com lista de voos', async ({ page }) => {
 
     await page.goto('https://www.blazedemo.com/');
     await expect(page).toHaveURL('https://www.blazedemo.com');

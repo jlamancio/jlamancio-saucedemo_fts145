@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
 
-test.only('Realizar login com usuário válido', async ({ page }) => {
+test.skip('Realizar login com usuário válido', async ({ page }) => {
 
     // 1 - Validar acesso à página principal 
 

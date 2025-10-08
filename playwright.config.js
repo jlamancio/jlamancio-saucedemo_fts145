@@ -1,13 +1,31 @@
 // @ts-check
-import { defineConfig, devices } from '@playwright/test';
 
-/**
+/**0
  * @see https://playwright.dev/docs/test-configuration
  */
 
-export default defineConfig({
+const { defineConfig, devices } = require('@playwright/test');
+const path = require('path');
+const { computeRunFolder, ensureSubdirs } = require('./utils/pathTools.js');
 
-  testDir: './e2e',
+// Diretórios onde serão armazenados os artefatos
+
+const ARTIFACTS_ROOT = path.join(__dirname, 'artifacts');
+const runDir = computeRunFolder(ARTIFACTS_ROOT);
+const { resultsDir, screenShotDir } = ensureSubdirs(runDir);
+
+// Expõe o path dos diretórios com variáveis de ambiente
+
+process.env.RUN_DIR = runDir;
+process.env.SCREENSHOTS_DIR = screenShotDir;
+
+
+
+module.exports = defineConfig({
+
+  testDir: './e2e',                             // diretório dos testes do projeto
+
+  timeout: 30000,
 
   fullyParallel: true,
 
@@ -17,18 +35,23 @@ export default defineConfig({
 
   workers: process.env.CI ? 1 : undefined,
 
-  reporter: 'html',
+  reporter: [['html', {
+
+    outputFolder: resultsDir,
+
+  }]],
 
   use: {
     //  baseURL: 'https://www.saucedemo.com',
     baseURL: 'https://blazedemo.com',
     headless: false,
+    screenshot: 'on-first-failure',
+    video: 'retain-on-failure',
+    trace: 'retain-on-failure',
     launchOptions: {
-      slowMo: 1000,
+      slowMo: 500,
     }
-
   },
-
 
   projects: [
     {
@@ -48,7 +71,6 @@ export default defineConfig({
 
 
   ],
-
 
 });
 

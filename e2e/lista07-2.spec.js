@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
 
-test('Realizar cadastro de novo usuário', async ({ page }) => {
+test.skip('Realizar cadastro de novo usuário', async ({ page }) => {
     await page.goto('/')
 
     const acessarHome = page.locator('body > div.navbar.navbar-inverse > div > div > a:nth-child(3)')

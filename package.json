@@ -1,15 +1,22 @@
 {
-  "name": "saucedemo_fts145",
+  "name": "saucedemo145",
   "version": "1.0.0",
-  "description": "Iterasys - FTS145 - Testes Automatizados com Playwright",
+  "private": true
+  ,
+  "description": "FTS-145 - Automação de testes com Playwright - e2e",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "report": "playwright show-report",
+    "clean": "rimraf artifacts playwright-report test-results"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
     "@playwright/test": "^1.55.0",
-    "@types/node": "^24.3.1"
+    "rimraf": "^6.0.1"
   }
 }
